@@ -305,7 +305,7 @@ def get_vocab_list(
 
     def sentence_iterator():
         for file_path in file_paths:
-            for line in open(file_path, "r"):
+            for line in open(file_path, "r", encoding="utf-8"):
                 yield line.strip()
 
     model_name = Path(vocab_directory, "spm.model")
