@@ -150,12 +150,15 @@ class CausalSelfAttention(nn.Module):
 
         # Step 4: Compute the attention output
         # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
-        selfAttentionScores = selfAttentionScores @ v
+        selfAttentionScores = attention @ v
 
         # Step 5: re-assemble all head outputs side by side
         # (B, T, nh, hs) -> (B, T, C)
+
         # Transposing (B, nh, T, hs) to (B, T, nh, hs)
         selfAttentionScores = selfAttentionScores.transpose(1,2)
+
+        # Reshaping so that nh, hs are combined
         selfAttentionScores = selfAttentionScores.reshape(B, T, C)
 
         # Step 6: output projection + dropout
