@@ -243,12 +243,12 @@ def train(args: argparse.Namespace) -> None:
                         patience = train_config["patience"]
                         torch.save(
                             model.state_dict(),
-                            str(Path(args.checkpoint_path, "nmt.model")),
+                            str(Path(args.checkpoint_path, "part2large.model")),
                         )
                         # Also save the optimizer
                         torch.save(
                             optimizer.state_dict(),
-                            str(Path(args.checkpoint_path, "nmt.model.optim")),
+                            str(Path(args.checkpoint_path, "part2large.model.optim")),
                         )
                     else:
                         patience -= 1
@@ -351,7 +351,7 @@ def parse_args():
     parser.add_argument(
         "--wandb-run-name",
         type=str,
-        default="part2smolRetry",
+        default="part2SamllRetry",
         help="Weights and Biases run name.",
     )
 
