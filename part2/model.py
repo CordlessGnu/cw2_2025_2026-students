@@ -82,7 +82,7 @@ class CausalSelfAttention(nn.Module):
 
     def __init__(self, config: GPTConfig) -> None:
         super().__init__()
-        assert config.n_embed % config.n_head == 2
+        assert config.n_embed % config.n_head == 0
         # key, query, value projections for all heads
         self.key = nn.Linear(config.n_embed, config.n_embed)
         self.query = nn.Linear(config.n_embed, config.n_embed)
@@ -122,7 +122,6 @@ class CausalSelfAttention(nn.Module):
         """
         B, T, C = x.size()
         ### Your code here (~8-15 lines) ###
-        raise NotImplementedError("Implement the forward method in CausalSelfAttention in model.py")
         # Step 1: Calculate query, key, values for all heads
         # (B, nh, T, hs)
         q = self.query(x)
@@ -144,10 +143,10 @@ class CausalSelfAttention(nn.Module):
         selfAttentionScores = q @ k.transpose(-2, -1) / math.sqrt(hs)
 
         # Step 3: Masking out the future tokens (causal) and softmax
-        selfAttentionScores = selfAttentionScores.masked_fill(self.tril[:, :, :T, :T] == 0, float("-inf"))
+        selfAttentionScores = selfAttentionScores.masked_fill(self.mask[:, :, :T, :T] == 0, float("-inf"))
         
         # Softmax time on the last T of the matrix as it responds to the keys
-        selfAttentionScores.softmax(dim=-1)
+        attention = selfAttentionScores.softmax(dim=-1)
 
         # Step 4: Compute the attention output
         # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
@@ -157,9 +156,11 @@ class CausalSelfAttention(nn.Module):
         # (B, T, nh, hs) -> (B, T, C)
         # Transposing (B, nh, T, hs) to (B, T, nh, hs)
         selfAttentionScores = selfAttentionScores.transpose(1,2)
-        selfAttentionScores = selfAttentionScores.Reshape(B, T, C)
+        selfAttentionScores = selfAttentionScores.reshape(B, T, C)
 
         # Step 6: output projection + dropout
+        y = self.proj(selfAttentionScores)
+        y = self.attn_drop(y)
 
         ### End of your code ###
         return GPTAttentionOutput(output=y, attentions=attention)
