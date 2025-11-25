@@ -344,14 +344,14 @@ def parse_args():
     parser.add_argument(
         "--wandb-project",
         type=str,
-        default="nmt-project",
+        default="nlpCW2",
         help="Weights and Biases project name.",
     )
 
     parser.add_argument(
         "--wandb-run-name",
         type=str,
-        default=f"nmt_{int(time.time())}",
+        default="part2smolRetry",
         help="Weights and Biases run name.",
     )
 
