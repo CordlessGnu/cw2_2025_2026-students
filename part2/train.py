@@ -351,7 +351,7 @@ def parse_args():
     parser.add_argument(
         "--wandb-run-name",
         type=str,
-        default="part2SamllRetry",
+        default="part2Large2ndTry",
         help="Weights and Biases run name.",
     )
 
