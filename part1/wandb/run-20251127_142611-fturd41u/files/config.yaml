@@ -1,0 +1,85 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            6lk06dyfydw33u2qlg0mxc2a7vvc6g8y:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 20
+                    memoryGb: 24
+                    name: Apple M4 Pro
+                    pcpuCores: 10
+                    ramTotalBytes: "25769803776"
+                    swapTotalBytes: "2147483648"
+                args:
+                    - --model-config
+                    - ./model_config.yaml
+                    - --train-config
+                    - ./train_config.yaml
+                    - --wandb-run-name
+                    - seq2seq-medium
+                codePath: part1/train.py
+                codePathLocal: train.py
+                cpu_count: 14
+                cpu_count_logical: 14
+                disk:
+                    /:
+                        total: "994662584320"
+                        used: "498874908672"
+                email: tomwintertoniv@gmail.com
+                executable: /Users/tom/.local/share/mamba/envs/NLPtorch/bin/python
+                git:
+                    commit: 6296d01b2e305648d9a65f237663f27b738fbb47
+                    remote: https://github.com/CordlessGnu/cw2_2025_2026-students.git
+                host: Toms-MacBook-Pro.local
+                memory:
+                    total: "25769803776"
+                os: macOS-26.1-arm64-arm-64bit
+                program: /Users/tom/Desktop/HW2025/cw2_2025_2026-students/part1/train.py
+                python: CPython 3.11.13
+                root: /Users/tom/Desktop/HW2025/cw2_2025_2026-students/part1
+                startedAt: "2025-11-27T14:26:11.117972Z"
+                writerId: 6lk06dyfydw33u2qlg0mxc2a7vvc6g8y
+        m: []
+        python_version: 3.11.13
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+            "3":
+                - 13
+                - 16
+                - 61
+            "4": 3.11.13
+            "5": 0.23.0
+            "12": 0.23.0
+            "13": darwin-arm64
+dev_batch_size:
+    value: 128
+dropout_rate:
+    value: 0.2
+embed_size:
+    value: 64
+hidden_size:
+    value: 64
+log_every:
+    value: 10
+lr:
+    value: 0.001
+lr_decay:
+    value: 0.5
+max_epoch:
+    value: 30
+max_num_trial:
+    value: 5
+patience:
+    value: 1
+seed:
+    value: 0
+train_batch_size:
+    value: 32
+uniform_init:
+    value: 0.1
+valid_niter:
+    value: 2000

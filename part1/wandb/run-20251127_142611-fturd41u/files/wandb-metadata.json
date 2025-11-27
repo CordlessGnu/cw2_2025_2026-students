@@ -1,0 +1,45 @@
+{
+  "os": "macOS-26.1-arm64-arm-64bit",
+  "python": "CPython 3.11.13",
+  "startedAt": "2025-11-27T14:26:11.117972Z",
+  "args": [
+    "--model-config",
+    "./model_config.yaml",
+    "--train-config",
+    "./train_config.yaml",
+    "--wandb-run-name",
+    "seq2seq-medium"
+  ],
+  "program": "/Users/tom/Desktop/HW2025/cw2_2025_2026-students/part1/train.py",
+  "codePath": "part1/train.py",
+  "codePathLocal": "train.py",
+  "git": {
+    "remote": "https://github.com/CordlessGnu/cw2_2025_2026-students.git",
+    "commit": "6296d01b2e305648d9a65f237663f27b738fbb47"
+  },
+  "email": "tomwintertoniv@gmail.com",
+  "root": "/Users/tom/Desktop/HW2025/cw2_2025_2026-students/part1",
+  "host": "Toms-MacBook-Pro.local",
+  "executable": "/Users/tom/.local/share/mamba/envs/NLPtorch/bin/python",
+  "cpu_count": 14,
+  "cpu_count_logical": 14,
+  "disk": {
+    "/": {
+      "total": "994662584320",
+      "used": "498874908672"
+    }
+  },
+  "memory": {
+    "total": "25769803776"
+  },
+  "apple": {
+    "name": "Apple M4 Pro",
+    "ecpuCores": 4,
+    "pcpuCores": 10,
+    "gpuCores": 20,
+    "memoryGb": 24,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "25769803776"
+  },
+  "writerId": "6lk06dyfydw33u2qlg0mxc2a7vvc6g8y"
+}
