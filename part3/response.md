@@ -1,3 +1,23 @@
+1.) In this example, both the BiLSTM and Transformers got the sentence wrong. The BiLSTM Model managed to capture the sentence structure and got it most syntax correct but did not capture 'red'. As seen in the heatmap (fig 1.1) red attends to "en" whcich is unrelated. The tranformer got the colours right and the sentence seems semanticly correct, but the syntax is wrong. The meaning of the sentence of describing the colours of the couch, is captured however it described it as "wearing" the colours. Both manage to coordinate the nouns with the 'and' seen in (fig 1.2) layer 3 head 6 where 'and' attends to both 'rouge' and 'noir'. 
+
+This could be attributed to a lack of dataset information, and BiLSTM limited understanding of attaching adjectives and long range dependencies. Transformers failure could be attributed to its imited understanding of syntax.
+
+![fig 1.1.](bilstm_example1.png)
+fig 1.1.
+
+![fig 1.2.](trans_example1.png)
+fig 1.2
+
+2.) In this example both models have correctly assigned the gendered determiner to the nouns. The BiLSTM generally self attends in (fig 2.1.) and doesn't capture any long-term dependencies, it does manage to slightly attend girl to "une" showing some gender understanding. The Transformer manages to identify and strongly attend to the gendered relationship of the masculine and feminine nouns this is seen in (fig 2.2) layer 5 head 2 and layer 3 head 6 where both "girl" and "boy" attends to its appropriate detereminer. The transformer has also managed to pick up the subject of the sentence and attends to the adjectives describing the couch as seen in layer 3 head 2 (red attends to couch). Also in layer 4 head 4 'couch' attends to (fr)'are sitting on' show much deeper understanding.
+
+![fig 2.1.](bilstm_example2.png)
+fig 2.1.
+
+![fig 2.2.](trans_example2.png)
+fig 2.2
+
+
+
 3.)
 
 In this example, there are two errors that the BiLSTM made that the Transformer did not. The first error is the inclusion of 'des', which is not needed in this sentence, and the second is the wrong gendered form of the word two, 'assises'. Both of these errors can be attributed to a lack of understanding from the BiLSTM on the structure of the sentence. This is most likely because cross-attention does not capture enough detail about non-direct dependences in sentences. If you look at the heatmap for the BiLSTM in this case (fig 3.1), you can see that the cross attention is fairly linear, causing decoding to mostly pay attention to the direct translated word. This means that the BiLSTM has less knowledge of the sentences subjects and objects, causing things like gender errors.
