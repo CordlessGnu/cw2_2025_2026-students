@@ -1,4 +1,10 @@
+3.)
 
+In this example, there are two errors that the BiLSTM made that the Transformer did not. The first error is the inclusion of 'des', which is not needed in this sentence, and the second is the wrong gendered form of the word two, 'assises'. Both of these errors can be attributed to a lack of understanding from the BiLSTM on the structure of the sentence. This is most likely because cross-attention does not capture enough detail about non-direct dependences in sentences. If you look at the heatmap for the BiLSTM in this case (fig 3.1), you can see that the cross attention is fairly linear, causing decoding to mostly pay attention to the direct translated word. This means that the BiLSTM has less knowledge of the sentences subjects and objects, causing things like gender errors.
+
+The transformer addresses these issues with multi-headed self attention. by allowing multiple layers and heads of dependences to be learned, there is a greater chance that deeper sentence structures and dependences can be captured.
+![fig 3.1.](bilstm_example3.png)
+fig 3.1.
 
 4.)
 
