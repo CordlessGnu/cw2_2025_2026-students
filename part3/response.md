@@ -1,4 +1,18 @@
+1.) In this example, both the BiLSTM and Transformers got the sentence wrong. The BiLSTM Model managed to capture the sentence structure of two colours however it didn't manage to capture both colours. As seen in the heatmap (fig 1.1) red attends to "en" whcich is unrelated. The tranformer got the colours right and the semantics correct, but syntactically it is wrong  the meaning of the sentence of describing the colours of the couch, however it described it as "wearing" it. In (fig 1.2) layer 3 head 6 "and" attends to both "rouge" and "noir". 
 
+This performance could be attributed to the datset
+![fig 1.1.](bilstm_example1.png)
+fig 1.1.
+
+![fig 1.2.](trans_example1.png)
+fig 1.2
+
+2.) In this example both models have correctly assigned the gendered determiner to the nouns. The BiLSTM generally self attends in (fig 2.1.) and doesn't capture any long-term dependencies, it does manage to slightly attend girl to "une" showing some gender understanding. The Transformer manages to identify and strongly attend to the gendered relationship of the masculine and feminine nouns this is seen in (fig 2.2) layer 5 head 2 and layer 3 head 6 where both "girl" and "boy" attends to its appropriate detereminer.
+![fig 2.1.](bilstm_example2.png)
+fig 2.1.
+
+![fig 2.2.](trans_example2.png)
+fig 2.2
 
 4.)
 
